@@ -16,10 +16,12 @@
       add,
       map(p => p.price,
         filter(p => p.price < 20000, products))));
+  // 30000
 
   log(
     reduce(
       add,
       filter(n => n >= 20000,
         map(p => p.price, products))));
+  // 75000
 </script>
