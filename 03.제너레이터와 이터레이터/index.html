@@ -7,12 +7,11 @@
 <script>
   function* gen() {
     yield 1;
-    if (false) yield 2;
+    yield 2;
     yield 3;
+    return 100;
   }
-
   let iter = gen();
-  log(iter[Symbol.iterator]() == iter);
   log(iter.next());
   log(iter.next());
   log(iter.next());
@@ -25,14 +24,39 @@
 # odds
 
 <script>
-  function* infinity(i = 0) {
+    // function *odds() {
+    //     yield 1;
+    //     yield 3;
+    //     yield 5;
+    // }
+
+    // function *odds(l) {
+    //     for (let i = 0; i < l; i++) {
+    //         if(i % 2) yield i;
+    //     }
+    // }
+    // const iter2 = odds(10);
+    // log(iter2.next());
+    // log(iter2.next());
+    // log(iter2.next());
+    // log(iter2.next());
+
+
+  function *infinity(i = 0) {
     while (true) yield i++;
   }
 
-  function* limit(l, iter) {
+  // function *odds(l) {
+  //     for (const a of infinity(1)) {
+  //         if (a % 2) yield a;
+  //         if (a === l) return;
+  //     }
+  // }
+
+  function *limit(l, iter) {
     for (const a of iter) {
       yield a;
-      if (a == l) return;
+      if (a === l) return;
     }
   }
 
@@ -42,7 +66,7 @@
     }
   }
 
-  let iter2 = odds(10);
+    const iter2 = odds(10);
   log(iter2.next());
   log(iter2.next());
   log(iter2.next());
