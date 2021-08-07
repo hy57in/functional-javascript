@@ -15,6 +15,7 @@
 # map
 
 <script>
+
   const map = (f, iter) => {
     let res = [];
     for (const a of iter) {
@@ -67,7 +68,7 @@
   m.set("b", 20);
   log(new Map(map(([k, a]) => [k, a * 2], m)));
 
-  console.clear();
+  //console.clear();
 </script>
 
 # filter
@@ -81,19 +82,19 @@
     return res;
   };
 
-  // let under20000 = [];
-  // for (const p of products) {
-  //   if (p.price < 20000) under20000.push(p);
-  // }
-  // log(...under20000);
+  let under20000 = [];
+  for (const p of products) {
+    if (p.price < 20000) under20000.push(p);
+  }
+  log(...under20000);
 
   log(...filter((p) => p.price < 20000, products));
 
-  // let over20000 = [];
-  // for (const p of products) {
-  //   if (p.price >= 20000) over20000.push(p);
-  // }
-  // log(...over20000);
+  let over20000 = [];
+  for (const p of products) {
+    if (p.price >= 20000) over20000.push(p);
+  }
+  log(...over20000);
 
   log(...filter((p) => p.price >= 20000, products));
 
@@ -147,7 +148,7 @@
 
   log(reduce(add, [1, 2, 3, 4, 5]));
   // 15
-
+  log(reduce(add, 1, [2, 3, 4, 5]));
   console.clear();
 </script>
 
