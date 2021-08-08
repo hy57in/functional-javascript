@@ -28,7 +28,8 @@
   const pipe = (f, ...fs) => (...as) => go(f(...as), ...fs);
 
   go(
-    add(0, 1),
+    0,
+    a => a + 1,
     a => a + 10,
     a => a + 100,
     log);
